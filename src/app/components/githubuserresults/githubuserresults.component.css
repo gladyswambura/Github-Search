@@ -1,0 +1,102 @@
+.container-fluid{
+  background-color: rgba(123, 122, 122, 0.94);
+  color: white;
+}
+.container {
+    text-align: center;
+}
+
+.form-control {
+    text-align: center;
+}
+
+/* .card-image {
+  border-radius: 50%;
+  height: 40%;
+  margin-left: 5%;
+  outline: 2px solid rgb(8, 23, 54);
+} */
+
+.col-md-6 {
+  margin: 0 auto;
+}
+
+#heading {
+  color: rgb(8, 23, 54);
+  ;
+}
+
+.form-group .sr-only {
+  color: rgb(8, 23, 54);
+}
+
+.form-group input {
+  border-radius: 20px;
+  height: 8vh;
+  /* outline: 0.5px solid rgb(64, 135, 55); */
+  outline: none;
+  /* border: none; */
+  border-bottom: 1.5px solid rgb(64, 135, 55);
+  /* box-shadow: 0.1px 0.2px black; */
+}
+
+#btn {
+  outline: 0.5px solid rgb(8, 23, 54);
+  border: none;
+  background-color: rgb(8, 23, 54);
+  /* color: white; */
+  border-radius: 20px;
+  font-weight: bold;
+  width: 50%;
+}
+
+#update {
+  background-color: rgb(8, 23, 54);
+}
+#btn:hover {
+  background-color: rgb(17, 219, 209);
+  color: black;
+}
+
+#avatar {
+  border-radius: 50%;
+  height: 65%;
+  margin-left: 5%;
+  outline: 2px solid rgb(14, 181, 172);
+}
+
+#info {
+  border-bottom: 1px solid rgb(14, 181, 172);
+
+}
+
+.name {
+  font-size: 20px;
+  color: rgb(8, 23, 54);
+  ;
+}
+
+.card {
+  background-color: rgb(60, 70, 84);
+  border-radius: 20px;
+  color: white;
+}
+.wrapper {
+  /* display: flex; */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.repo_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 80px;
+ 
+}
+
+#button {
+  background-color:rgb(8, 23, 54);
+  bottom: 0;
+}
