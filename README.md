@@ -2,6 +2,7 @@ Github Search
 
 ##### Gladys Wambura
 
+![image](src/assets/Githubsearch.jpeg)
 ## Table of Content
 
 - [Description](#description)
