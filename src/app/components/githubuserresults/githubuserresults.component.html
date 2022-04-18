@@ -1,0 +1,58 @@
+
+     <div class="container-fluid">
+       <!-- form for user input -->
+       <div class="col-md-6">
+         <h4 class="text-center fw-bold fs-3" id="heading">Git Search</h4>
+         <!-- <form role="form" [formGroup]="githubsearchForm" (ngSubmit)="getUser()"> -->
+         <form class="form" #login="ngForm" (ngSubmit)="onSubmit(login)">
+           <div class="form-group mb-3">
+              <label for="search">Search using either username / repository name</label> <br>
+              <span class="input-group-text" id="search">@
+             <input type="text" name="search" placeholder="Username / Repository name" class="form-control me-2"
+               required ngModel></span>
+              </div>
+              <button type="submit" id="btn" class="btn btn-outline-danger d-block mx-auto">Search</button>
+              </form>
+              </div>
+
+
+              <div class="cointainer">
+                <div class="row" *ngIf="user">
+                  <div class="col-md-4 mt-5 text-right">
+                    <img id="avatar" src="{{user.avatar_url}}">
+                  </div>
+
+
+                  <div class="col-md-6 mt-5">
+                    <h3 id="info" class="text-uppercase"><em>User Information</em></h3>
+                    <h6>Name :{{user.login}}</h6>
+                    <br>
+                    <h6> Bio<em><strong>{{user.userbio}}</strong></em></h6>
+                    <br>
+                    <h6> <i class="fa-solid fa-people-group"> </i> {{user.followers}} Followers</h6>
+                    <br>
+                    <h6> <i class="fa-solid fa-person"></i> {{user.following}} Following</h6>
+                    <br>
+                     <h6>Location<em><strong>{{user.location}}</strong></em></h6>
+
+                    <br>
+                    <h6> <i class="fa-solid fa-folder"></i> {{user.numberofRepositories}} Public Repositories</h6>
+
+                    <button class="btn btn-outline-info"><a href="{{user.html_url}}"></a><i
+                        class="fa-brands fa-github"></i> View on Github</button>
+                  </div>
+
+
+                  </div>
+
+     
+
+          <p></p><br>
+          <p><a href="{{user.html_url}}"></a></p>
+          <p> </p>
+          <p>{{user.update_time}}</p>
+       </div>
+      
+     </div>
+
+ 
