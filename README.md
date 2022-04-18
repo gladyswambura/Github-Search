@@ -2,7 +2,7 @@ Github Search
 
 ##### Gladys Wambura
 
-![image](![image](https://user-images.githubusercontent.com/97955649/163875642-5be07f5f-2a85-4aa4-b2df-b144d62256d9.png))
+![image](https://user-images.githubusercontent.com/97955649/163875642-5be07f5f-2a85-4aa4-b2df-b144d62256d9.png)
 ## Table of Content
 
 - [Description](#description)
