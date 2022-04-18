@@ -1,68 +1,68 @@
-    <app-repo></app-repo>
- <div class="container-fluid">
- <!-- form for user input --> 
-  <div class="col-md-6">
-    <h4 class="text-center fw-bold fs-3" id="heading">GIT SEARCH</h4>
-    <br>
-    <form class="form" #login="ngForm">
-      <div class="form-group mb-3">
-        <label for="search">Search using either username / repository name</label> <br>
-  
-          <input type="text" name="search" placeholder="Username / Repository name" class="form-control me-2" required
-            [(ngModel)] = "myusername">
-      </div>
-      <button type="submit" id="btn" class="btn btn-outline-danger d-block mx-auto" (click)="onSubmit()">Search</button>
-    </form>
-  </div> 
 
+    <div class="container-fluid">
+      <!-- form for user input -->
+      <div class="col-md-6">
+        <h4 class="text-center fw-bold fs-3" id="heading">GIT SEARCH</h4>
+        <br>
+        <form class="form" #login="ngForm">
+          <div class="form-group mb-3">
+            <label for="search">Search using either username / repository name</label> <br>
 
-  <div class="cointainer">
-    <div class="row" *ngIf="user">
-      <div class="col-md-4 mt-5 text-right">
-        <img id="avatar" src="{{user.avatar_url}}">
+            <input type="text" name="search" placeholder="Username / Repository name" class="form-control me-2" required
+              [(ngModel)]="myusername">
+          </div>
+          <button type="submit" id="btn" class="btn btn-outline-info d-block mx-auto"
+            (click)="onSubmit()">Search</button>
+        </form>
       </div>
 
-      <div class="col-md-6 mt-5">
-        <h3 id="info" class="text-uppercase"><em>User Information</em></h3>
-        <h6>Name :{{user.login}}</h6>
-        <br>
-        <h6><em><strong>{{user.bio}}</strong></em></h6>
-        <br>
-        <div class="d-flex">
-          <h6> <i class="fa-solid fa-people-group"> </i> {{user.followers}} Followers</h6>
-          <br>
-          <h6> <i class="fa-solid fa-person"></i> {{user.following}} Following</h6>
-          <br>
+
+      <div class="cointainer">
+        <div class="row" *ngIf="user">
+          <div class="col-md-5 mt-5 text-center">
+            <img id="avatar" src="{{user.avatar_url}}">
+          </div>
+
+          <div class="col-md-6 mt-5">
+            <h3 id="info" class="text-uppercase"><em>User Information</em></h3>
+            <h6 class="name">Name :{{user.login}}</h6>
+            <br>
+            <h6><em><strong>{{user.bio}}</strong></em></h6>
+            <br>
+            <div class="d-flex">
+              <h6> <i class="fa-solid fa-people-group"> </i> {{user.followers}} Followers</h6>
+              <p></p>
+              <h6> <i class="fa-solid fa-person ms-5"></i> {{user.following}} Following</h6>
+            </div>
+            <br>
+            <h6>Location: <em><strong>{{user.location}}</strong></em></h6>
+            <br>
+            <h6>Update time: <em><strong>{{user.updated_at|date}}</strong></em></h6>
+            <br>
+            <h6> <i class="fa-solid fa-folder"></i> {{user.public_repos}} Public Repositories</h6>
+            <br>
+            <a href="{{user.html_url}}" target="_blank"><button id="update" class="btn btn-outline-info"><i
+                  class="fa-brands fa-github"></i>View on
+                Github</button></a>
+          </div>
         </div>
-        <h6>Location: <em><strong>{{user.location}}</strong></em></h6>
-        <br>
-        <h6>Update time: <em><strong>{{user.update_time}}</strong></em></h6>
-        <br>
-        <h6> <i class="fa-solid fa-folder"></i> {{user.numberofRepositories}} Public Repositories</h6>
-        <br>
-        <a href="{{user.html_url}}" target="_blank"><button class="btn btn-outline-info"><i
-            class="fa-brands fa-github"></i>View on
-          Github</button></a>
+      </div>
+
+      <div class="wrapper">
+        <div class="repo_wrapper text-center">
+          <div class="card col-md-3 ms-1 mb-3" *ngFor="let repo of repository">
+            <div class="card-header">
+              <h5 class="card-title">{{repo.name}}</h5>
+              
+            </div>
+            <div class="card-body">
+              <i class="card-title">{{repo.created_at|date}}</i>
+              <p class="card-text">{{repo.description}}</p><br>
+              <p class="card-text">Owned by: {{repo.owner.login}}</p>
+              <h3><i class="fa-solid fa-file-code text-success"></i><i>{{repo.language}}</i></h3>
+              <a href="{{repo.html_url}}" id="button" class="btn btn-outline-info btn-sm ">View Repo</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="card col-md-6" *ngFor="let repo of repository">
-      <div class="card-header">
-        {{repo.name}}
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{repo.name}}</h5>
-        <p class="card-text">{{repo.description}}</p>
-        <p class="card-text">Owned by: {{repo.owner.login}}</p>
-        <h3><i class="fa-solid fa-file-code text-success"></i><i>{{repo.language}}</i></h3>
-        <a href="{{repo.html_url}}" class="btn btn-primary btn-sm">View Repo</a>
-      </div>
-    
-    
-  </div>
-
-
-
-</div>
