@@ -1,58 +1,68 @@
-
-     <div class="container-fluid">
-       <!-- form for user input -->
-       <div class="col-md-6">
-         <h4 class="text-center fw-bold fs-3" id="heading">Git Search</h4>
-         <!-- <form role="form" [formGroup]="githubsearchForm" (ngSubmit)="getUser()"> -->
-         <form class="form" #login="ngForm" (ngSubmit)="onSubmit(login)">
-           <div class="form-group mb-3">
-              <label for="search">Search using either username / repository name</label> <br>
-              <span class="input-group-text" id="search">@
-             <input type="text" name="search" placeholder="Username / Repository name" class="form-control me-2"
-               required ngModel></span>
-              </div>
-              <button type="submit" id="btn" class="btn btn-outline-danger d-block mx-auto">Search</button>
-              </form>
-              </div>
-
-
-              <div class="cointainer">
-                <div class="row" *ngIf="user">
-                  <div class="col-md-4 mt-5 text-right">
-                    <img id="avatar" src="{{user.avatar_url}}">
-                  </div>
+    <app-repo></app-repo>
+ <div class="container-fluid">
+ <!-- form for user input --> 
+  <div class="col-md-6">
+    <h4 class="text-center fw-bold fs-3" id="heading">GIT SEARCH</h4>
+    <br>
+    <form class="form" #login="ngForm">
+      <div class="form-group mb-3">
+        <label for="search">Search using either username / repository name</label> <br>
+  
+          <input type="text" name="search" placeholder="Username / Repository name" class="form-control me-2" required
+            [(ngModel)] = "myusername">
+      </div>
+      <button type="submit" id="btn" class="btn btn-outline-danger d-block mx-auto" (click)="onSubmit()">Search</button>
+    </form>
+  </div> 
 
 
-                  <div class="col-md-6 mt-5">
-                    <h3 id="info" class="text-uppercase"><em>User Information</em></h3>
-                    <h6>Name :{{user.login}}</h6>
-                    <br>
-                    <h6> Bio<em><strong>{{user.userbio}}</strong></em></h6>
-                    <br>
-                    <h6> <i class="fa-solid fa-people-group"> </i> {{user.followers}} Followers</h6>
-                    <br>
-                    <h6> <i class="fa-solid fa-person"></i> {{user.following}} Following</h6>
-                    <br>
-                     <h6>Location<em><strong>{{user.location}}</strong></em></h6>
+  <div class="cointainer">
+    <div class="row" *ngIf="user">
+      <div class="col-md-4 mt-5 text-right">
+        <img id="avatar" src="{{user.avatar_url}}">
+      </div>
 
-                    <br>
-                    <h6> <i class="fa-solid fa-folder"></i> {{user.numberofRepositories}} Public Repositories</h6>
+      <div class="col-md-6 mt-5">
+        <h3 id="info" class="text-uppercase"><em>User Information</em></h3>
+        <h6>Name :{{user.login}}</h6>
+        <br>
+        <h6><em><strong>{{user.bio}}</strong></em></h6>
+        <br>
+        <div class="d-flex">
+          <h6> <i class="fa-solid fa-people-group"> </i> {{user.followers}} Followers</h6>
+          <br>
+          <h6> <i class="fa-solid fa-person"></i> {{user.following}} Following</h6>
+          <br>
+        </div>
+        <h6>Location: <em><strong>{{user.location}}</strong></em></h6>
+        <br>
+        <h6>Update time: <em><strong>{{user.update_time}}</strong></em></h6>
+        <br>
+        <h6> <i class="fa-solid fa-folder"></i> {{user.numberofRepositories}} Public Repositories</h6>
+        <br>
+        <a href="{{user.html_url}}" target="_blank"><button class="btn btn-outline-info"><i
+            class="fa-brands fa-github"></i>View on
+          Github</button></a>
+      </div>
+    </div>
+  </div>
 
-                    <button class="btn btn-outline-info"><a href="{{user.html_url}}"></a><i
-                        class="fa-brands fa-github"></i> View on Github</button>
-                  </div>
+
+  <div class="card col-md-6" *ngFor="let repo of repository">
+      <div class="card-header">
+        {{repo.name}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{repo.name}}</h5>
+        <p class="card-text">{{repo.description}}</p>
+        <p class="card-text">Owned by: {{repo.owner.login}}</p>
+        <h3><i class="fa-solid fa-file-code text-success"></i><i>{{repo.language}}</i></h3>
+        <a href="{{repo.html_url}}" class="btn btn-primary btn-sm">View Repo</a>
+      </div>
+    
+    
+  </div>
 
 
-                  </div>
 
-     
-
-          <p></p><br>
-          <p><a href="{{user.html_url}}"></a></p>
-          <p> </p>
-          <p>{{user.update_time}}</p>
-       </div>
-      
-     </div>
-
- 
+</div>
